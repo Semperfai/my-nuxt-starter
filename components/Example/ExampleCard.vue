@@ -1,22 +1,24 @@
 <script setup lang="ts">
-import type { ExampleCardProps } from './ExampleCard.props'
+import type { ExampleCardProps } from "./ExampleCard.props";
 
-defineProps<ExampleCardProps>()
+defineProps<ExampleCardProps>();
 
-const dogAge = ref(0)
+const dogAge = ref(0);
 
 const humanAge = computed(() => {
   if (dogAge.value) {
-    return dogAge.value * 7
+    return dogAge.value * 7;
   }
-})
+});
 </script>
 
 <template>
   <div class="card">
     <p class="font-bold mb-2">{{ title }}</p>
     <div class="space-x-2">
-      <label for="age">Your dog's age</label>
+      <label for="age">
+        <slot />
+      </label>
       <input
         class="text-black rounded-sm p-1"
         type="number"
